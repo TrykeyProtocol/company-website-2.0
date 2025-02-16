@@ -1,107 +1,89 @@
-import React from "react";
+"use client";
+
+import { TrendingUp } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+
 import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Label,
-} from "recharts";
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "../atoms/chart";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "../atoms/card";
+const chartData = [
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
+];
 
-interface DailyStats {
-  date: string;
-  [key: string]: number | string;
-}
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "#EE774A",
+  },
+} satisfies ChartConfig;
 
-interface GraphData {
-  total_rooms: number;
-  total_active_rooms: number;
-  total_occupied_rooms: number;
-  expected_yield: number;
-  daily_stats: DailyStats[];
-}
-
-interface GraphProps {
-  data: GraphData;
-  xAxisDataKey: string;
-  yAxisDataKey: string;
-  xAxisLabel: string;
-  yAxisLabel: string;
-  areaColor?: string;
-  areaFillColor?: string;
-  totalRooms: number;
-}
-
-const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date.toLocaleString('default', { month: 'short', day: 'numeric' });
-};
-
-const LineGraph: React.FC<GraphProps> = ({ 
-  data, 
-  xAxisDataKey, 
-  yAxisDataKey, 
-  xAxisLabel, 
-  yAxisLabel,
-  areaColor = "#f9733e",
-  areaFillColor = "#fcb091",
-  totalRooms
-}) => {
-  const chartData = data.daily_stats.map(item => ({
-    ...item,
-    [xAxisDataKey]: xAxisDataKey === 'date' ? formatDate(item.date) : item[xAxisDataKey]
-  }));
-
+export function LineGraph() {
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <AreaChart
-        width={500}
-        height={400}
-        data={chartData}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 40,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis 
-          dataKey={xAxisDataKey} 
-          tick={{ fontSize: 10 }}
-          height={40}
-        >
-          <Label 
-            value={xAxisLabel} 
-            position="bottom" 
-            style={{ textAnchor: 'middle', fontSize: 10 }}
-          />
-        </XAxis>
-        <YAxis 
-          tick={{ fontSize: 10 }}
-          width={60}
-          domain={[0, totalRooms]}
-          allowDecimals={false}
-        >
-          <Label 
-            value={yAxisLabel} 
-            angle={-90} 
-            position="insideLeft" 
-            style={{ textAnchor: 'middle', fontSize: 10 }}
-          />
-        </YAxis>
-        <Tooltip />
-        <Area 
-          type="monotone" 
-          dataKey={yAxisDataKey} 
-          stroke={areaColor} 
-          fill={areaFillColor} 
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+    <Card>
+      <CardHeader>
+        <div className=" flex items-center gap-1">
+          <p className=" font-semibold">₦260000.00</p>
+          <p className=" font-medium text-xs text-gray-400">
+            Total Yield Generated
+          </p>
+          <div className=" p-1 rounded-full bg-green-100">
+            <p className=" text-green-600 text-[10px]">+1.34% ↗</p>
+          </div>
+        </div>
+        <CardDescription className=" text-sm text-green-600 font-bold">
+          On track
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <AreaChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            {/* <CartesianGrid vertical={false} /> */}
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => value.slice(0, 3)}
+              className=" text-xs text-gray-300"
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="line" />}
+            />
+            <Area
+              dataKey="desktop"
+              type="natural"
+              fill="#EE774A"
+              fillOpacity={0}
+              stroke="#EE774A"
+              strokeWidth={2}
+            />
+          </AreaChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   );
-};
-
-export default LineGraph;
+}

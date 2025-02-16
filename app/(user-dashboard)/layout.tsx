@@ -1,6 +1,4 @@
-"use client";
 
-import DashboardLayout from "@/library/components/templates/dashboard-layout-wrapper";
 
 export default function MainLayout({
   children,
@@ -8,8 +6,6 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <DashboardLayout>{children}</DashboardLayout>
-    </div>
+      <>{children}</>
   );
 }

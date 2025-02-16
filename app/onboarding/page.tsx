@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import ButtonBlack from "@/library/components/atoms/button-black";
 
-const OnboardingScreen = () => {
+const page = () => {
   const screens = [
     {
       title: "Assets management made easy",
@@ -51,7 +52,7 @@ const OnboardingScreen = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-6 bg-white ">
+    <div className="flex flex-col items-center justify-center h-screen bg-white p-6">
       <div className="flex justify-between w-full">
         <button
           className="text-gray-500"
@@ -97,14 +98,12 @@ const OnboardingScreen = () => {
           ))}
         </div>
       </div>
-      <button
-        className="w-full py-3 mt-6 text-white bg-gray-800 rounded-lg hover:bg-gray-900"
+      <ButtonBlack
         onClick={handleNext}
-      >
-        {screens[currentScreen].buttonText}
-      </button>
+        text={screens[currentScreen].buttonText}
+      />
     </div>
   );
 };
 
-export default OnboardingScreen;
+export default page;

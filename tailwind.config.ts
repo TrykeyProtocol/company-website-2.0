@@ -8,49 +8,58 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      keyframes: {
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+      },
       colors: {
         lightMode: {
           brand: {
-            primary: '#FF5722',
-            secondary: '#F5F5F5',
-            accent: '#EB5017'
+            primary: "#FF5722",
+            secondary: "#F5F5F5",
+            accent: "#EB5017",
           },
           background: {
-            main: '#FFFFFF',
-            secondary: '#f3f4f6',
-            alternate: '#F9FAFC'
+            main: "#FFFFFF",
+            secondary: "#f3f4f6",
+            alternate: "#F9FAFC",
           },
           text: {
-            main: '#5F6D7E',
-            heading: '#272D37',
-            accent: '#EB5017'
+            main: "#5F6D7E",
+            heading: "#272D37",
+            accent: "#EB5017",
           },
           button: {
-            background: '#EB5017',
-            text: '#FFFFFF'
-          }
+            background: "#EB5017",
+            text: "#FFFFFF",
+          },
         },
         darkMode: {
           brand: {
-            primary: '#FFA726',
-            secondary: '#212121',
-            accent: '#FF7043'
+            primary: "#FFA726",
+            secondary: "#212121",
+            accent: "#FF7043",
           },
           background: {
-            main: '#181818',
-            secondary: '#101010',
-            alternate: '#0A0909'
+            main: "#181818",
+            secondary: "#101010",
+            alternate: "#0A0909",
           },
           text: {
-            main: '#E0E0E0',
-            heading: '#FFFFFF',
-            accent: '#FF7043'
+            main: "#E0E0E0",
+            heading: "#FFFFFF",
+            accent: "#FF7043",
           },
           button: {
-            background: '#FF7043',
-            text: '#FFFFFF'
-          }
-        }
+            background: "#FF7043",
+            text: "#FFFFFF",
+          },
+        },
       },
     },
   },

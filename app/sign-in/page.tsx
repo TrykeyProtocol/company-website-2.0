@@ -20,24 +20,10 @@ const page = () => {
           />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Hello!</h1>
-          <p className="mt-2 text-sm text-gray-600">Sign up to get started</p>
+          <h1 className="text-2xl font-bold text-gray-900">Welcome Back!</h1>
+          <p className="mt-2 text-sm text-gray-600">Sign in to access your account</p>
         </div>
         <form className="mt-4 space-y-6">
-          {/* First Name */}
-          <Input
-            label="First name"
-            placeholder="Enter first name"
-            className="mt-1"
-          />
-
-          {/* Last Name */}
-          <Input
-            label="Last name"
-            placeholder="Enter last name"
-            className="mt-1"
-          />
-
           {/* Email */}
           <Input
             label="Email"
@@ -54,28 +40,29 @@ const page = () => {
             className="mt-1"
             isPassword
           />
+          <div className="flex justify-end -mt-4">
 
-          {/* Confirm Password */}
-          <Input
-            label="Confirm password"
-            type="password"
-            placeholder="Enter password again"
-            className="mt-1"
-            isPassword
-          />
+            <Link
+              href="/sign-in/forgot-password"
+              className=" text-lightMode-brand-primary hover:text-lightMode-brand-primary/80 text-sm"
+            >
+              Forgot Password?
+            </Link>
+          </div>
 
-          <ButtonBlack type="submit" text="Sign Up" />
+
+          <ButtonBlack type="submit" text="Sign In" />
         </form>
 
         {/* Sign In Link */}
         <div className="text-center">
           <p className="text-sm text-gray-600">
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <Link
-              href="/sign-in"
+              href="/sign-up"
               className="font-medium text-lightMode-brand-primary hover:text-lightMode-brand-primary/80"
             >
-              SIGN IN
+              SIGN UP
             </Link>
           </p>
         </div>
