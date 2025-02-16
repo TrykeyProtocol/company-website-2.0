@@ -7,7 +7,7 @@ import { FaApple } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import ButtonBlack from "@/library/components/atoms/button-black";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="min-h-screen flex justify-center p-6 pt-10 bg-white">
       <div className="max-w-md w-full space-y-8">
@@ -97,4 +97,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -2,7 +2,7 @@ import ButtonBlack from "@/library/components/atoms/button-black";
 import Image from "next/image";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   return (
     <div className=" flex flex-col items-center h-screen justify-center p-4 bg-white">
       <div className=" flex flex-col items-center space-y-4">
@@ -23,4 +23,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

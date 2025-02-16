@@ -5,7 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const router = useRouter(); // Initialize Next.js router
 
   return (
@@ -47,4 +47,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

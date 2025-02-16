@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import ButtonBlack from "@/library/components/atoms/button-black";
 
-const page = () => {
+const Page = () => {
   const screens = [
     {
       title: "Assets management made easy",
@@ -106,4 +106,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -13,7 +13,7 @@ import {
   InputOTPSlot,
 } from "@/library/components/atoms/input-otp";
 
-const page = () => {
+const Page = () => {
   const router = useRouter(); // Initialize Next.js router
 
   return (
@@ -59,4 +59,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

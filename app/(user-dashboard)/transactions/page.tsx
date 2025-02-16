@@ -10,7 +10,7 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
-const page = () => {
+const Page = () => {
   const [showBalance, setShowBalance] = useState(false);
 
   const transactions = [
@@ -175,4 +175,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

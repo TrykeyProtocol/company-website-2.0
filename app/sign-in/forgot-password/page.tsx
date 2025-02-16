@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { Input } from "@/library/components/atoms/input";
 
-const page = () => {
+const Page = () => {
   const router = useRouter(); 
 
   return (
@@ -42,4 +42,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

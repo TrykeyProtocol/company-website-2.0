@@ -7,7 +7,7 @@ import { FaApple } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import ButtonBlack from "@/library/components/atoms/button-black";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="min-h-screen flex justify-center p-6 pt-10 bg-white">
       <div className="max-w-md w-full space-y-8">
@@ -57,7 +57,7 @@ const page = () => {
         {/* Sign In Link */}
         <div className="text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href="/sign-up"
               className="font-medium text-lightMode-brand-primary hover:text-lightMode-brand-primary/80"
@@ -84,4 +84,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
