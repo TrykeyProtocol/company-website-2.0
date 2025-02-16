@@ -1,5 +1,6 @@
+"use client"
 import { Input } from "@/library/components/atoms/input";
-import Logo from "@/library/components/atoms/logo";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
@@ -8,6 +9,8 @@ import { FaFacebook } from "react-icons/fa";
 import ButtonBlack from "@/library/components/atoms/button-black";
 
 const Page = () => {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex justify-center p-6 pt-10 bg-white">
       <div className="max-w-md w-full space-y-8">
@@ -21,9 +24,11 @@ const Page = () => {
         </div>
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Welcome Back!</h1>
-          <p className="mt-2 text-sm text-gray-600">Sign in to access your account</p>
+          <p className="mt-2 text-sm text-gray-600">
+            Sign in to access your account
+          </p>
         </div>
-        <form className="mt-4 space-y-6">
+        <div className="mt-4 space-y-6">
           {/* Email */}
           <Input
             label="Email"
@@ -41,7 +46,6 @@ const Page = () => {
             isPassword
           />
           <div className="flex justify-end -mt-4">
-
             <Link
               href="/sign-in/forgot-password"
               className=" text-lightMode-brand-primary hover:text-lightMode-brand-primary/80 text-sm"
@@ -50,9 +54,12 @@ const Page = () => {
             </Link>
           </div>
 
-
-          <ButtonBlack type="submit" text="Sign In" />
-        </form>
+          <ButtonBlack
+            // type="submit"
+            text="Sign In"
+            onClick={() => router.push("/dashboard")}
+          />
+        </div>
 
         {/* Sign In Link */}
         <div className="text-center">

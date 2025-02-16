@@ -33,14 +33,14 @@ const DashboardLayout = ({
   };
 
   return (
-    <div className= {`flex flex-col h-screen ${className}`}>
+    <div className= {`flex flex-col bg-white h-screen ${className}`}>
       {/* Header */}
       <header className="p-4 bg-white">
         <div className="flex justify-between items-center">
           {pathname == "/dashboard" ? (
             <div>
               <p className="text-orange-500 text-xs font-bold">Welcome Back,</p>
-              <h1 className="text-2xl font-bold">John Doe</h1>
+              <h1 className="text-2xl font-bold text-gray-800">John Doe</h1>
             </div>
           ) : (
             <div className="flex items-center">
