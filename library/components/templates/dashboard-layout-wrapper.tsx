@@ -128,8 +128,8 @@ const DashboardLayout = ({
               { href: "/profile", icon: User, label: "Profile" },
             ].map(({ href, icon: Icon, label }) => (
               <Link key={href} href={href} className={getNavLinkClass(href)}>
-                <Icon className="w-6 h-6" />
-                <span className="text-xs mt-1 font-bold">{label}</span>
+                <Icon className="w-5 h-5 " strokeWidth={1.5} />
+                <span className="text-xs mt-1 font-medium">{label}</span>
               </Link>
             ))}
           </div>
