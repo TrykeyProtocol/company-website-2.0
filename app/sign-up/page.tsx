@@ -42,6 +42,13 @@ const Page = () => {
             className="mt-1"
           />
 
+          <Input
+            label="Phone number"
+            type="telephone"
+            placeholder="Enter phone number"
+            className="mt-1"
+          />
+
           {/* Email */}
           <Input
             label="Email"

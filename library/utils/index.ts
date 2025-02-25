@@ -33,3 +33,14 @@ export const useSmoothScroll = () => {
     }
   }, []);
 };
+
+export function getInitials(name: string): string {
+  const words = name.split(" ");
+  if (words.length === 1) {
+    return name.charAt(0).toUpperCase();
+  }
+  return words
+    .slice(0, 2)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join("");
+}

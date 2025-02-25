@@ -3,12 +3,14 @@ import DashboardLayout from "@/library/components/templates/dashboard-layout-wra
 import React, { useState } from "react";
 import {
   Banknote,
+  ChevronRight,
   Eye,
   EyeOff,
   HandCoins,
   MoveDownLeft,
   MoveUpRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const Page = () => {
   const [showBalance, setShowBalance] = useState(false);
@@ -16,36 +18,42 @@ const Page = () => {
   const transactions = [
     {
       name: "Sarah Doe",
+      vehicle_no: "234-6573-ABJ",
       date: "3rd Nov, 2023",
       amount: 25000,
       type: "receive",
     },
     {
       name: "John Smith",
+      vehicle_no: "234-6573-ABJ",
       date: "4th Nov, 2023",
       amount: 30000,
       type: "receive",
     },
     {
       name: "Michael Brown",
+      vehicle_no: "234-6573-ABJ",
       date: "7th Nov, 2023",
       amount: 35000,
       type: "send",
     },
     {
       name: "Emma Johnson",
+      vehicle_no: "234-6573-ABJ",
       date: "5st Nov, 2023",
       amount: 28000,
       type: "receive",
     },
     {
       name: "Michael Brown",
+      vehicle_no: "234-6573-ABJ",
       date: "7th Nov, 2023",
       amount: 35000,
       type: "receive",
     },
     {
       name: "Michael Brown",
+      vehicle_no: "234-6573-ABJ",
       date: "7th Nov, 2023",
       amount: 35000,
       type: "send",
@@ -103,28 +111,29 @@ const Page = () => {
         </div>
 
         <div className=" px-8 py-3 flex gap-10 items-center justify-center border border-[#F0F2F5] rounded-xl w-min shadow-sm">
-          <div className=" flex gap-2 items-center">
+          <Link  href={"/transactions/send"} className=" flex gap-2 items-center">
             <div className=" bg-lightMode-brand-accent p-1.5 rounded-full">
               <MoveUpRight className=" w-3 h-3 text-white" />
             </div>
-            <p className=" text-lg font-medium">Send</p>
-          </div>
+            <p className=" text-lg font-medium">Withdraw</p>
+          </Link>
           <div className="h-10 w-[1px] bg-orange-100"></div>
-          <div className=" flex gap-2 items-center">
+          <Link href={"/transactions/receive"}  className=" flex gap-2 items-center">
             <div className=" bg-lightMode-brand-accent p-1.5 rounded-full">
               <MoveDownLeft className=" w-3 h-3 text-white" />
             </div>
             <p className=" text-lg font-medium">Receive</p>
-          </div>
+          </Link>
         </div>
 
         {/* Transaction History */}
         <div className="w-full ">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-medium">Transaction History</h2>
-            <select className="text-sm text-gray-600 border-none outline-none">
-              <option>Nov</option>
-            </select>
+            <h2 className="font-medium">Recent Transactions</h2>
+            <Link href="/transactions/all-transactions" className="text-xs text-gray-400 flex">
+              View All
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {transactions.map((transaction, index) => (
@@ -153,7 +162,7 @@ const Page = () => {
                   )}
                 </div>
                 <div>
-                  <p className="font-medium text-sm">{transaction.name}</p>
+                  <p className="font-medium text-sm">{transaction.name} paid to <span className=" font-light">{transaction.vehicle_no}</span> </p>
                   <p className="text-xs text-gray-400">{transaction.date}</p>
                 </div>
               </div>
