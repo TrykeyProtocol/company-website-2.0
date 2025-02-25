@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -11,6 +11,7 @@ import {
   User,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -29,6 +30,28 @@ const DashboardLayout = ({
 }: DashboardLayoutProps) => {
   const pathname = usePathname();
   const currentFirstSegment = pathname.split("/").filter(Boolean)[0] || "";
+  
+  // State to store the safe area height
+  const [safeAreaHeight, setSafeAreaHeight] = useState("100vh");
+
+  // Calculate the safe area height on component mount and window resize
+  useEffect(() => {
+    const calculateSafeAreaHeight = () => {
+      // Use CSS env() variables to account for mobile browser UI elements
+      // This will adjust for the search bar at the bottom in browsers that support it
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      setSafeAreaHeight("calc(var(--vh, 1vh) * 100)");
+    };
+
+    // Initial calculation
+    calculateSafeAreaHeight();
+
+    // Recalculate on resize
+    window.addEventListener('resize', calculateSafeAreaHeight);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', calculateSafeAreaHeight);
+  }, []);
 
   const isLinkActive = (href: string) => {
     const hrefFirstSegment = href.split("/").filter(Boolean)[0] || "";
@@ -48,19 +71,34 @@ const DashboardLayout = ({
   };
 
   return (
-    <div className={`flex flex-col bg-white h-screen ${className}`}>
+    <div 
+      className={`flex flex-col bg-white ${className}`}
+      style={{ height: safeAreaHeight }}
+    >
       {/* Header */}
       <header className="p-4 bg-white">
         <div className="flex justify-between items-center">
           {pathname === "/dashboard" ? (
-            <div>
-              <p className="text-orange-500 text-xs font-bold">Welcome Back,</p>
-              <h1 className="text-2xl font-bold text-gray-800">John Doe</h1>
+            <div className="flex items-center gap-4">
+              <Image
+                src={"/images/dashboard/avatar.jpg"}
+                alt={""}
+                width={40}
+                height={40}
+              />
+              <div>
+                <p className="text-lightMode-brand-primary text-xs font-bold">
+                  Welcome Back,
+                </p>
+                <h1 className="text-2xl font-bold text-gray-800">John Doe</h1>
+              </div>
             </div>
           ) : (
             <div className="flex ">
               {headerTitle && (
-                <h1 className="text-xl font-semibold text-center">{headerTitle}</h1>
+                <h1 className="text-xl font-semibold text-center">
+                  {headerTitle}
+                </h1>
               )}
             </div>
           )}
@@ -76,12 +114,12 @@ const DashboardLayout = ({
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto p-4">{children}</main>
+      <main className="flex-1 overflow-y-auto p-4 pb-safe">{children}</main>
 
       {/* Bottom Navigation */}
       {showNav && (
         <nav className="bg-white border-t border-gray-200">
-          <div className="flex justify-around items-center py-2 relative">
+          <div className="flex justify-around items-center py-2 relative pb-safe">
             {[
               { href: "/dashboard", icon: Home, label: "Home" },
               { href: "/transactions", icon: BarChart2, label: "Transactions" },
@@ -92,12 +130,6 @@ const DashboardLayout = ({
               <Link key={href} href={href} className={getNavLinkClass(href)}>
                 <Icon className="w-6 h-6" />
                 <span className="text-xs mt-1 font-bold">{label}</span>
-                {isLinkActive(href) && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
               </Link>
             ))}
           </div>

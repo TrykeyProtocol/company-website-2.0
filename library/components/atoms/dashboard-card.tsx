@@ -18,15 +18,15 @@ const DashboardCard = () => {
       <div className="bg-white rounded-xl py-2 px-10 flex items-center justify-center gap-4">
         <div className="flex items-center flex-col">
           <p className="text-[10px] whitespace-nowrap">Yield Generated</p>
-          <p className="text-[10px] font-bold whitespace-nowrap">₦300000.00</p>
+          <p className="text-[10px] font-bold whitespace-nowrap text-lightMode-brand-accent">₦300000.00</p>
         </div>
         <div className="flex items-center flex-col">
           <p className="text-[10px] whitespace-nowrap">Expected Yield</p>
-          <p className="text-[10px] font-bold whitespace-nowrap">₦3000.00</p>
+          <p className="text-[10px] font-bold whitespace-nowrap text-lightMode-brand-accent">₦3000.00</p>
         </div>
         <div className="flex items-center flex-col">
           <p className="text-[10px] whitespace-nowrap">Number of Vehicles</p>
-          <p className="text-[10px] font-bold whitespace-nowrap">20</p>
+          <p className="text-[10px] font-bold whitespace-nowrap text-lightMode-brand-accent">20</p>
         </div>
       </div>
     </div>

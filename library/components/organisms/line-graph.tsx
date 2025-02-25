@@ -39,14 +39,14 @@ export function LineGraph() {
       <CardHeader>
         <div className=" flex items-center gap-1">
           <p className=" font-semibold">₦260000.00</p>
-          <p className=" font-medium text-xs text-gray-400">
+          <p className=" font-medium text-xs text-gray-400 whitespace-nowrap">
             Total Yield Generated
           </p>
           <div className=" p-1 rounded-full bg-green-100">
-            <p className=" text-green-600 text-[10px]">+1.34% ↗</p>
+            <p className=" text-green-600 text-[10px] whitespace-nowrap">+1.34% ↗</p>
           </div>
         </div>
-        <CardDescription className=" text-sm text-green-600 font-bold">
+        <CardDescription className=" text-sm text-green-600 font-bold whitespace-nowrap">
           On track
         </CardDescription>
       </CardHeader>
