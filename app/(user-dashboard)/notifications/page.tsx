@@ -1,9 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowLeft, ChevronDown, Bell, AlertCircle, ArrowUpDown } from "lucide-react";
+import {
+  ArrowLeft,
+  ChevronDown,
+  Bell,
+  AlertCircle,
+  ArrowUpDown,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Notification {
   id: string;
@@ -14,8 +21,11 @@ interface Notification {
 }
 
 const NotificationsScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"all" | "transactions" | "alerts">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "transactions" | "alerts">(
+    "all"
+  );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   // Sample data
   const notifications: Notification[] = [
@@ -30,14 +40,16 @@ const NotificationsScreen: React.FC = () => {
       id: "2",
       type: "vehicle_exit",
       title: "Vehicle Exit Alert",
-      description: "ABC-123XYZ has exited its designated area. Last seen near Wuse, Abuja at 11:00 AM.",
+      description:
+        "ABC-123XYZ has exited its designated area. Last seen near Wuse, Abuja at 11:00 AM.",
       timestamp: new Date(),
     },
     {
       id: "3",
       type: "vehicle_exit",
       title: "Vehicle Exit Alert",
-      description: "ABC-123XYZ has exited its designated area. Last seen near Wuse, Abuja at 11:00 AM.",
+      description:
+        "ABC-123XYZ has exited its designated area. Last seen near Wuse, Abuja at 11:00 AM.",
       timestamp: new Date(),
     },
     {
@@ -52,8 +64,10 @@ const NotificationsScreen: React.FC = () => {
   // Filter notifications based on active tab
   const filteredNotifications = notifications.filter((notification) => {
     if (activeTab === "all") return true;
-    if (activeTab === "transactions" && notification.type === "debit_alert") return true;
-    if (activeTab === "alerts" && notification.type === "vehicle_exit") return true;
+    if (activeTab === "transactions" && notification.type === "debit_alert")
+      return true;
+    if (activeTab === "alerts" && notification.type === "vehicle_exit")
+      return true;
     return false;
   });
 
@@ -70,13 +84,25 @@ const NotificationsScreen: React.FC = () => {
     if (type === "debit_alert") {
       return (
         <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-          <Image src="/money-icon.png" alt="Money" width={20} height={20} className="text-green-500" />
+          <Image
+            src="/money-icon.png"
+            alt="Money"
+            width={20}
+            height={20}
+            className="text-green-500"
+          />
         </div>
       );
     } else if (type === "vehicle_exit") {
       return (
         <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-          <Image src="/bell-icon.png" alt="Alert" width={20} height={20} className="text-red-500" />
+          <Image
+            src="/bell-icon.png"
+            alt="Alert"
+            width={20}
+            height={20}
+            className="text-red-500"
+          />
         </div>
       );
     }
@@ -87,12 +113,13 @@ const NotificationsScreen: React.FC = () => {
       {/* Header */}
       <div className="bg-white py-3 px-4 flex items-center shadow-sm">
         <div className="text-gray-500">
-          <Link href="/dashboard">
-            <ArrowLeft size={20} />
-          </Link>
+          <ArrowLeft
+            size={20}
+            onClick={() => router.back()}
+            className=" cursor-pointer"
+          />
         </div>
         <div className="flex-1 text-center font-medium">Notifications</div>
-        
       </div>
 
       {/* Tab Header */}
@@ -160,7 +187,6 @@ const NotificationsScreen: React.FC = () => {
         </button>
       </div>
 
-
       {/* Notifications List */}
       <div className="flex-1 overflow-y-auto">
         {filteredNotifications.length === 0 ? (
@@ -206,7 +232,9 @@ const NotificationsScreen: React.FC = () => {
                 )}
                 <div className="flex-1">
                   <h3 className="font-medium text-sm">{notification.title}</h3>
-                  <p className="text-gray-600 text-xs mt-1">{notification.description}</p>
+                  <p className="text-gray-600 text-xs mt-1">
+                    {notification.description}
+                  </p>
                 </div>
               </div>
             ))}
