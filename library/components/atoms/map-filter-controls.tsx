@@ -32,7 +32,7 @@ const FilterControls: React.FC<FilterControlsProps> = ({
 
       {/* Filter Dropdown */}
       {isOpen && (
-        <div className="fixed top-16 left-4 bg-white rounded-lg shadow-lg p-4 w-48 z-50">
+        <div className="fixed top-16 right-4 bg-white rounded-lg shadow-lg p-4 w-48 z-50">
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
               <Checkbox

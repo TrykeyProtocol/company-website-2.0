@@ -169,8 +169,8 @@ const AssetsScreen: React.FC = () => {
         />
 
         {/* Manage Fleet Button */}
-        <div className="absolute bottom-4 right-4 z-50">
-          <Button className="bg-black text-white px-6 py-2 rounded-lg">
+        <div className="fixed bottom-20 right-4 z-50">
+          <Button className="bg-black text-white px-6 py-2 rounded-lg" onClick={()=> router.push("/assets/manage-fleet")}>
             Manage Fleet
           </Button>
         </div>

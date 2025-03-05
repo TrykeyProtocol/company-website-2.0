@@ -125,7 +125,7 @@ const Page = () => {
 
       <ButtonBlack
         text="Next"
-        onClick={() => router.push("/sign-in/forgot-password/verify-code")}
+        // onClick={() => router.push("/sign-in/forgot-password/verify-code")}
       />
     </div>
   );
