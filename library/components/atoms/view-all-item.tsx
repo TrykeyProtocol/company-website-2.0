@@ -17,6 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
+import { useRouter } from "next/navigation";
 
 // Define TypeScript interfaces
 export interface Asset {
@@ -42,11 +43,14 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
   onView,
 }) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   return (
-    <Card className="mb-4 overflow-hidden rounded-lg border">
+    <Card className="mb-4 overflow-hidden rounded-lg border bg-cover"      style={{
+      backgroundImage: "url('/images/dashboard/hotel/hotel.png')", 
+    }}>
       <div className="flex p-3">
-        <div className=" shrink-0">
+        {/* <div className=" shrink-0">
           <Image
             src="/images/dashboard/hotel/hotel.png"
             alt={asset.name}
@@ -54,12 +58,12 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
             width={111}
             height={40}
           />
-        </div>
+        </div> */}
 
         <div className="flex flex-1 flex-col p-4">
           <div className="mb-2 flex items-center justify-between">
             <div className="flex items-center">
-              <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-orange-100">
+              <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-white">
                 <svg
                   width="16"
                   height="16"
@@ -101,7 +105,7 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
-                  <MoreVertical className="h-5 w-5" />
+                  <MoreVertical className="h-5 w-5 text-white" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className=" bg-white border p-3 rounded-lg w-36 space-y-4 cursor-pointer">
@@ -109,7 +113,11 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
                   <Trash className="mr-2 h-4 w-4" />
                   <span className=" text-xs">Remove</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => onEdit(asset.id)} className=" flex items-center text-gray-500">
+                <DropdownMenuItem 
+                // onClick={() => onEdit(asset.id)} 
+                onClick={() => router.push("/assets/manage-fleet/edit-asset")}
+
+                className=" flex items-center text-gray-500">
                   <Edit className="mr-2 h-4 w-4" />
                   <span className=" text-xs">Edit Asset</span>
                 </DropdownMenuItem>
@@ -117,7 +125,7 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
             </DropdownMenu>
           </div>
 
-          <div className=" flex items-center justify-center gap-4 my-4">
+          <div className=" flex items-center justify-center gap-4 my-4 bg-white  py-2 px-6 rounded-3xl">
             <div className="flex items-center flex-col">
               <p className="text-[10px] whitespace-nowrap">Yield Generated</p>
               <p className="text-[10px] font-bold whitespace-nowrap text-lightMode-brand-accent">
@@ -142,8 +150,9 @@ const AssetListItem: React.FC<AssetListItemProps> = ({
 
           <div className="flex justify-end">
             <Button
-              onClick={() => onView(asset.id)}
-              className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/90"
+              // onClick={() => onView(asset.id)}
+              onClick={() => router.push("/assets")}
+              className="rounded-md bg-white px-4 py-2 text-xs font-medium text-gray-800 hover:bg-white/90"
             >
               View Asset
             </Button>

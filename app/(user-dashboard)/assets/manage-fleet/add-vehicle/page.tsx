@@ -79,7 +79,7 @@ const AddVehiclePage: React.FC = () => {
 
               <Select.Portal>
                 <Select.Content
-                  className="overflow-hidden bg-white rounded-md shadow-lg"
+                  className="overflow-hidden bg-white rounded-md shadow-lg w-[200px]"
                   position="popper"
                   sideOffset={5}
                 >

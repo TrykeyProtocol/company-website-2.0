@@ -23,8 +23,8 @@ const Page = () => {
 
         <div className="flex flex-col items-center pt-12">
           <QrCode className=" w-[273px] h-[273px]" />
-          <p className=" text-xl font-semibold mt-7">Scan to get paid</p>
-          <p className=" text-center ">Hold the code inside the frame, it will be scanned automatically you will be notified once payment is received</p>
+          <p className=" text-lg font-semibold mt-7">Scan to get paid</p>
+          <p className=" text-center text-sm">Hold the code inside the frame, it will be scanned automatically you will be notified once payment is received</p>
         </div>
       </div>
       <ButtonBlack text="Done" />

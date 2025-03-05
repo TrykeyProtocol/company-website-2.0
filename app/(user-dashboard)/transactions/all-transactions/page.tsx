@@ -90,12 +90,7 @@ const Page = () => {
                   )}
                 </div>
                 <div>
-                  <p className="font-medium text-sm">
-                    {transaction.name} paid to{" "}
-                    <span className=" font-light">
-                      {transaction.vehicle_no}
-                    </span>{" "}
-                  </p>
+                  <p className="font-medium text-xs">{transaction.name} paid to <span className=" font-light">{transaction.vehicle_no}</span> </p>
                   <p className="text-xs text-gray-400">{transaction.date}</p>
                 </div>
               </div>

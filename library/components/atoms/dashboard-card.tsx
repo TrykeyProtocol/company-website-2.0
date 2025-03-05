@@ -6,7 +6,7 @@ const DashboardCard = () => {
     <div
       className="bg-cover bg-center flex flex-col gap-20 py-4 px-6 rounded-3xl"
       style={{
-        backgroundImage: "url('/images/dashboard/hotel/hotel.png')", // Path to your image
+        backgroundImage: "url('/images/dashboard/hotel/hotel.png')", 
       }}
     >
       <div className="flex gap-2 items-center">
