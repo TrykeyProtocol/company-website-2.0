@@ -7,103 +7,122 @@ import { motion } from "framer-motion";
 
 const LandingSection: React.FC = () => {
   return (
-    <section className="bg-lightMode-background-main dark:bg-darkMode-background-main text-lightMode-text-main dark:text-darkMode-text-main">
-      <div className="container mx-auto  px-4 md:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
-        <div className="flex flex-col items-center justify-between gap-8 lg:gap-12">
-          {/* Main Image with Animation */}
+    <section className="bg-lightMode-background-main dark:bg-darkMode-background-main text-lightMode-text-main dark:text-darkMode-text-main relative overflow-hidden">
+      {/* Decorative stars */}
+      <div className="absolute top-24 left-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 0L22 18L40 20L22 22L20 40L18 22L0 20L18 18L20 0Z" fill="currentColor" fillOpacity="0.3" />
+          </svg>
+        </motion.div>
+      </div>
+      <div className="absolute bottom-24 right-1/2">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 0L22 18L40 20L22 22L20 40L18 22L0 20L18 18L20 0Z" fill="currentColor" fillOpacity="0.3" />
+          </svg>
+        </motion.div>
+      </div>
+      <div className="absolute top-1/2 right-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0L13.2 10.8L24 12L13.2 13.2L12 24L10.8 13.2L0 12L10.8 10.8L12 0Z" fill="currentColor" fillOpacity="0.3" />
+          </svg>
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Text Content */}
           <motion.div
-            className="w-full relative"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="w-full lg:w-1/2 order-2 lg:order-1"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image
-              src="/images/landing/tablet.png"
-              alt="Trykey Dashboard"
-              width={800}
-              height={460}
-              className="rounded-3xl w-full h-auto"
-              priority
-            />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-lightMode-text-heading dark:text-darkMode-text-heading">
+              Tracker-Based
+              <br />
+              Credit Rating For
+              <br />
+              Commercial Auto
+              <br />
+              Repair Lending
+            </h1>
+            <p className="text-lg md:text-xl mb-8 text-lightMode-text-secondary dark:text-darkMode-text-secondary">
+              Empowering Your Lending Decisions With Data-Driven Insights.
+            </p>
 
-            {/* Asset Icons */}
-            {[
-              {
-                src: "/images/landing/printer.webp",
-                alt: "Printer",
-                position: "top-0 left-0",
-              },
-              {
-                src: "/images/landing/tricycle.webp",
-                alt: "Tricycle",
-                position: "bottom-0 left-0",
-              },
-              {
-                src: "/images/landing/sewing.jpg",
-                alt: "Sewing Machine",
-                position: "top-0 right-0",
-              },
-              {
-                src: "/images/landing/generator.jpg",
-                alt: "Generator",
-                position: "bottom-0 right-0",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className={`absolute ${item.position} transform -translate-x-1/2 -translate-y-1/2 hidden lg:block`}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{
-                  delay: 0.5 + index * 0.2,
-                  duration: 0.5,
-                  ease: "easeOut",
-                }}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                variant="primary" 
+                size="large" 
+                href="/get-started" 
+                className="rounded-md flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white py-3 px-6"
               >
-                <div className="w-[120px] h-[120px] rounded-full border-4 border-lightMode-brand-primary dark:border-darkMode-brand-accent overflow-hidden drop-shadow-[0_10px_30px_rgba(235,80,23,0.2)] relative">
+                <span>Get Started</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Button>
+              
+              <Button 
+                variant="secondary" 
+                size="large" 
+                href="/watch-video"
+                className="flex items-center justify-center bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              >
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center mr-3 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-orange-600 dark:text-orange-500 font-medium">Watch Video</span>
+                </div>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Phone Images */}
+          <motion.div
+            className="w-full lg:w-1/2 order-1 lg:order-2 relative"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+
+            <div className="relative h-[500px] md:h-[600px] flex items-center justify-center">
+              {/* Right phone (Investment Overview) */}
+              <motion.div
+                className="absolute right-0 lg:right-0 z-10"
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                <div className="relative ">
                   <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    style={{ objectFit: "cover" }}
+                    src="/images/landing/hero.svg"
+                    alt="Investment Overview"
+                    width={900}
+                    height={640}
                   />
                 </div>
               </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Text Content */}
-          <motion.div
-            className="w-full text-center lg:w-2/3"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-lightMode-text-heading dark:text-darkMode-text-heading">
-              Secure your investments with technology{" "}
-              <span className="text-lightMode-text-accent dark:text-darkMode-text-accent italic">
-                not prayers
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl mb-8">
-              Cut unnecessary{" "}
-              <span className="text-lightMode-text-accent dark:text-darkMode-text-accent">
-                losses
-              </span>{" "}
-              and{" "}
-              <span className="text-lightMode-text-accent dark:text-darkMode-text-accent">
-                secure income
-              </span>{" "}
-              from your assets using Trykey&apos;s cutting-edge{" "}
-              <span className="text-lightMode-text-accent dark:text-darkMode-text-accent">
-                sensor-based
-              </span>{" "}
-              proof of yield system
-            </p>
-
-            <Button variant="primary" size="large" href="/login">
-              Log In →
-            </Button>
+            
+            </div>
           </motion.div>
         </div>
       </div>

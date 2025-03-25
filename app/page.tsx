@@ -5,22 +5,23 @@ import LandingSection from "@/library/components/organisms/landing-hero";
 import Navbar from "@/library/components/organisms/navbar";
 import NewsLetterSection from "@/library/components/organisms/news-letter";
 import UniquePropositionSection from "@/library/components/organisms/unique-proposition";
-import UseCasesSection from "@/library/components/organisms/use-case";
+import FeaturesSection from "@/library/components/organisms/feature";
+import FAQSection from "@/library/components/organisms/faq";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <Navbar />
-      <div className="pt-16 lg:pt-20"> 
+      <div className="pt-16 lg:pt-20">
         <LandingSection />
-        <UseCasesSection />
         <div id="features">
-          <UniquePropositionSection />
+          <FeaturesSection />
         </div>
-        <div id="about-us">
+        {/* <div id="about-us"> */}
           <AboutUsSection />
-        </div>
+        {/* </div> */}
         <HowItWorksSection />
+        <FAQSection />
         <NewsLetterSection />
         <Footer />
       </div>
