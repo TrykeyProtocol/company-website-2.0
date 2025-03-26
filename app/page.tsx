@@ -1,4 +1,4 @@
-import AboutUsSection from "@/library/components/organisms/about-us";
+import AdvantagesSection from "@/library/components/organisms/advantages";
 import Footer from "@/library/components/organisms/footer";
 import HowItWorksSection from "@/library/components/organisms/how-it-works";
 import LandingSection from "@/library/components/organisms/landing-hero";
@@ -18,9 +18,11 @@ export default function Home() {
           <FeaturesSection />
         </div>
         {/* <div id="about-us"> */}
-          <AboutUsSection />
+        <AdvantagesSection />
         {/* </div> */}
-        <HowItWorksSection />
+        <div id="how-it-works">
+          <HowItWorksSection />
+        </div>
         <FAQSection />
         <NewsLetterSection />
         <Footer />

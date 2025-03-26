@@ -9,6 +9,7 @@ import {
   Database,
   PlusCircle,
   User,
+  Warehouse,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -30,7 +31,7 @@ const DashboardLayout = ({
 }: DashboardLayoutProps) => {
   const pathname = usePathname();
   const currentFirstSegment = pathname.split("/").filter(Boolean)[0] || "";
-  
+
   // State to store the safe area height
   const [safeAreaHeight, setSafeAreaHeight] = useState("100vh");
 
@@ -39,7 +40,10 @@ const DashboardLayout = ({
     const calculateSafeAreaHeight = () => {
       // Use CSS env() variables to account for mobile browser UI elements
       // This will adjust for the search bar at the bottom in browsers that support it
-      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
       setSafeAreaHeight("calc(var(--vh, 1vh) * 100)");
     };
 
@@ -47,10 +51,10 @@ const DashboardLayout = ({
     calculateSafeAreaHeight();
 
     // Recalculate on resize
-    window.addEventListener('resize', calculateSafeAreaHeight);
-    
+    window.addEventListener("resize", calculateSafeAreaHeight);
+
     // Clean up
-    return () => window.removeEventListener('resize', calculateSafeAreaHeight);
+    return () => window.removeEventListener("resize", calculateSafeAreaHeight);
   }, []);
 
   const isLinkActive = (href: string) => {
@@ -71,7 +75,7 @@ const DashboardLayout = ({
   };
 
   return (
-    <div 
+    <div
       className={`flex flex-col bg-white ${className}`}
       style={{ height: safeAreaHeight }}
     >
@@ -102,14 +106,22 @@ const DashboardLayout = ({
               )}
             </div>
           )}
-          {!hideNotification && (
-            <Link href="/notifications" className={getNotificationLinkClass()}>
-              <Bell className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 bg-orange-500 rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">
-                1
-              </span>
+          <div className=" flex gap-3 items-center">
+            <Link href={"/marketplace/fleet-owner/profile"}>
+              <Warehouse className="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-all duration-300" />
             </Link>
-          )}
+            {!hideNotification && (
+              <Link
+                href="/notifications"
+                className={getNotificationLinkClass()}
+              >
+                <Bell className="w-6 h-6" />
+                <span className="absolute -top-1 -right-1 bg-orange-500 rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">
+                  1
+                </span>
+              </Link>
+            )}
+          </div>
         </div>
       </header>
 

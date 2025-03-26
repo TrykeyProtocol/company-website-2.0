@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Button from "../atoms/button";
 import { motion } from "framer-motion";
+import { useSmoothScroll } from "@/library/utils";
+
 
 const LandingSection: React.FC = () => {
   return (
@@ -70,7 +72,7 @@ const LandingSection: React.FC = () => {
                 variant="primary" 
                 size="large" 
                 href="/get-started" 
-                className="rounded-md flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white py-3 px-6"
+                className="rounded-md flex items-center justify-center bg-lightMode-brand-primary hover:bg-lightMode-brand-primary/90 text-white py-3 px-6"
               >
                 <span>Get Started</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
@@ -81,8 +83,8 @@ const LandingSection: React.FC = () => {
               <Button 
                 variant="secondary" 
                 size="large" 
-                href="/watch-video"
-                className="flex items-center justify-center bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                href="/#how-it-works"
+                className="flex items-center justify-center bg-transparent "
               >
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center mr-3 shadow-md">
