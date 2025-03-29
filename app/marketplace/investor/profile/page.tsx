@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import MarketplaceNav from "@/library/components/organisms/marketplace-nav";
 import Image from "next/image";
+import Link from "next/link";
 
 const MechanicProfile = () => {
   const [activeTab, setActiveTab] = useState("Services");
@@ -35,8 +36,17 @@ const MechanicProfile = () => {
     <div className="min-h-screen bg-white pb-16">
       {/* Header */}
       <header className="bg-white p-4 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">Profile</h1>
-        <button className="text-gray-500">
+      <div className=" flex gap-4 items-center">
+          <Link href={"/dashboard"} className="">
+            <Image
+              src={"/images/logo/logo-vertical.svg"}
+              alt={""}
+              width={40}
+              height={25}
+            />
+          </Link>
+          <h1 className="text-xl font-semibold">Profile</h1>
+        </div>        <button className="text-gray-500">
           <Settings size={20} />
         </button>
       </header>
@@ -71,17 +81,17 @@ const MechanicProfile = () => {
       <div className="grid grid-cols-3 gap-4 px-6 py-4 border rounded-lg m-4">
         <div className="flex flex-col items-center">
           <Banknote className=" stroke-darkMode-text-accent" />
-          <div className="text-xs text-gray-500">Amount Invested</div>
+          <div className="text-xs text-gray-500 text-center">Amount Invested</div>
           <div className=" font-semibold">₦10,0000.00</div>
         </div>
         <div className="flex flex-col items-center">
           <Coins className=" stroke-darkMode-text-accent" />
-          <div className="text-xs text-gray-500">Expected Interest</div>
+          <div className="text-xs text-gray-500 text-center">Expected Interest</div>
           <div className=" font-semibold">1500</div>
         </div>
         <div className="flex flex-col items-center">
           <CreditCard className=" stroke-darkMode-text-accent" />
-          <div className="text-xs text-gray-500">Credit Score</div>
+          <div className="text-xs text-gray-500 text-center">Credit Score</div>
           <div className=" font-semibold">1500</div>
         </div>
       </div>

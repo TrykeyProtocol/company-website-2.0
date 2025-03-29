@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Search, Bell, Filter, Heart } from "lucide-react";
 import MarketplaceNav from "@/library/components/organisms/marketplace-nav";
+import Image from "next/image";
 
 // Product type definition
 interface Product {
@@ -22,29 +23,29 @@ const PartSellerHome = () => {
       name: "Hilson Brake Pads",
       category: "Brake and suspension",
       price: 65000.00,
-      image: "/images/brake-pads.jpg"
+      image: "/images/marketplace/partseller/brake.png"
     },
     {
       id: "2",
       name: "Bosch Fan Belt",
       category: "Brand and suspension",
       price: 7000.00,
-      image: "/images/fan-belt.jpg"
+      image: "/images/marketplace/partseller/belt.png"
     },
-    {
-      id: "3",
-      name: "Oil Filter",
-      category: "Engine parts",
-      price: 3500.00,
-      image: "/images/oil-filter.jpg"
-    },
-    {
-      id: "4",
-      name: "Car Battery",
-      category: "Electrical parts",
-      price: 45000.00,
-      image: "/images/car-battery.jpg"
-    }
+    // {
+    //   id: "3",
+    //   name: "Oil Filter",
+    //   category: "Engine parts",
+    //   price: 3500.00,
+    //   image: "/images/oil-filter.jpg"
+    // },
+    // {
+    //   id: "4",
+    //   name: "Car Battery",
+    //   category: "Electrical parts",
+    //   price: 45000.00,
+    //   image: "/images/car-battery.jpg"
+    // }
   ]);
 
   const [favorites, setFavorites] = React.useState<string[]>([]);
@@ -132,7 +133,7 @@ const PartSellerHome = () => {
               alt="Cars"
               className="w-8 h-8"
             />
-            <span className="text-xs">Cars</span>
+            <span className="text-xs text-center">Cars</span>
           </div>
           <div className="bg-orange-100 rounded-lg flex flex-col items-center gap-2 p-2">
             <img
@@ -140,7 +141,7 @@ const PartSellerHome = () => {
               alt="Keke Parts"
               className="w-8 h-8"
             />
-            <span className="text-xs">Keke Parts</span>
+            <span className="text-xs text-center">Keke Parts</span>
           </div>
           <div className="bg-orange-100 rounded-lg flex flex-col items-center gap-2 p-2">
             <img
@@ -148,7 +149,7 @@ const PartSellerHome = () => {
               alt="Car Parts"
               className="w-8 h-8"
             />
-            <span className="text-xs">Car Parts</span>
+            <span className="text-xs text-center">Car Parts</span>
           </div>
           <div className="bg-orange-100 rounded-lg flex flex-col items-center gap-2 p-2">
             <img
@@ -156,7 +157,7 @@ const PartSellerHome = () => {
               alt="Services"
               className="w-8 h-8"
             />
-            <span className="text-xs">Services</span>
+            <span className="text-xs text-center">Services</span>
           </div>
         </div>
       </div>
@@ -172,7 +173,9 @@ const PartSellerHome = () => {
           {products.map((product) => (
             <div key={product.id} className="min-w-[150px] bg-white border border-gray-200 rounded-lg p-2">
               <div className="relative">
-                <img
+                <Image
+                width={138}
+                height={94}
                   src={product.image}
                   alt={product.name}
                   className="w-full h-32 object-cover rounded"

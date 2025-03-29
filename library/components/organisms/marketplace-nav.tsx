@@ -42,9 +42,7 @@ const MarketplaceNav: React.FC<{ userType: string }> = ({ userType }) => {
 
   return (
     <div>
-     <Link href={"/dashboard"} className="fixed top-4 left-1/2 -translate-x-1/2">
-  <Image src={"/images/logo/logo-vertical.svg"} alt={""} width={40} height={25} />
-</Link>
+
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
         <div className="flex justify-around items-center h-16">

@@ -13,6 +13,9 @@ import {
 import MarketplaceNav from "@/library/components/organisms/marketplace-nav";
 import AssetListItem from "@/library/components/atoms/view-all-item";
 import DashboardCard from "@/library/components/atoms/dashboard-card";
+import Link from "next/link";
+import Image from "next/image";
+
 
 const FleetOwnerProfile = () => {
   const [activeTab, setActiveTab] = useState("Fleets");
@@ -21,8 +24,17 @@ const FleetOwnerProfile = () => {
     <div className="min-h-screen bg-white pb-16">
       {/* Header */}
       <header className="bg-white p-4 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">Profile</h1>
-        <button className="text-gray-500">
+      <div className=" flex gap-4 items-center">
+          <Link href={"/dashboard"} className="">
+            <Image
+              src={"/images/logo/logo-vertical.svg"}
+              alt={""}
+              width={40}
+              height={25}
+            />
+          </Link>
+          <h1 className="text-xl font-semibold">Profile</h1>
+        </div>          <button className="text-gray-500">
           <Settings size={20} />
         </button>
       </header>
@@ -59,21 +71,21 @@ const FleetOwnerProfile = () => {
           <div className="bg-lightMode-brand-primary rounded-full p-2 mb-1">
             <Star className=" w-4 h-4" stroke="white" fill="white" />
           </div>
-          <div className="text-xs text-gray-500">Rating</div>
+          <div className="text-xs text-gray-500 text-center">Rating</div>
           <div className=" font-semibold">4.89</div>
         </div>
         <div className="flex flex-col items-center">
           <div className="bg-red-100 rounded-full p-2 mb-1">
             <CreditCard fill="#FF5722" className=" w-4 h-4 stroke-red-100" />
           </div>
-          <div className="text-xs text-gray-500">Credit Score</div>
+          <div className="text-xs text-gray-500 text-center">Credit Score</div>
           <div className=" font-semibold">75</div>
         </div>
         <div className="flex flex-col items-center">
           <div className=" p-1 mb-1">
             <Wrench className=" w-5 h-5 stroke-lightMode-brand-primary" />
           </div>
-          <div className="text-xs text-gray-500">Number of Vehicles</div>
+          <div className="text-xs text-gray-500 text-center">Number of Vehicles</div>
           <div className=" font-semibold">1500</div>
         </div>
       </div>
