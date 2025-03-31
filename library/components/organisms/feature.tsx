@@ -63,7 +63,8 @@ const FeaturesSection: React.FC = () => {
             >
               <h2 className="text-orange-500 font-medium text-lg mb-2">FEATURES</h2>
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white">
-                Track. Rate. Lend.
+              Monitor. Secure. Optimize.
+
               </h3>
             </motion.div>
 
@@ -74,8 +75,8 @@ const FeaturesSection: React.FC = () => {
                   <path d="M12 2L13.39 8.25H20L14.92 12.25L16.31 18.5L12 14.75L7.69 18.5L9.08 12.25L4 8.25H10.61L12 2Z" fill="currentColor" strokeWidth="2" />
                 </svg>
               }
-              title="Real-Time Tracking"
-              description="Cum Et Convallis Risus Placerat Aliquam, Nunc. Scelerisque Aliquet Faucibus Tincidunt Eu Adipiscing Sociis Arcu Lorem Porttitor."
+              title="Real-Time Asset Tracking"
+              description="Install our trackers in your fleet to access real-time data on asset usage and yield performance. Qualify for auto-based loans effortlessly."
               delay={0.2}
             />
             
@@ -85,8 +86,8 @@ const FeaturesSection: React.FC = () => {
                   <path d="M12 6.5L8 20.5L19 12.5L5 9.5L12 6.5Z" fill="currentColor" />
                 </svg>
               }
-              title="Data-Driven Ratings"
-              description="Cum Et Convallis Risus Placerat Aliquam, Nunc. Scelerisque Aliquet Faucibus Tincidunt Eu Adipiscing Sociis Arcu Lorem Porttitor."
+              title="Marketplace"
+              description="An auto services marketplace offering verified auto parts and mechanic services for reliable, authentic solutions."
               delay={0.4}
             />
             
@@ -97,8 +98,8 @@ const FeaturesSection: React.FC = () => {
                   <path d="M7 12H17M7 8H17M7 16H13" stroke="white" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               }
-              title="Automated Risk Analysis"
-              description="Cum Et Convallis Risus Placerat Aliquam, Nunc. Scelerisque Aliquet Faucibus Tincidunt Eu Adipiscing Sociis Arcu Lorem Porttitor."
+              title="Credit Rating System"
+              description="Vendors build credit ratings by servicing customers, enabling access to auto loans while ensuring high-quality service."
               delay={0.6}
             />
           </div>

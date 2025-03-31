@@ -24,7 +24,7 @@ const userTypes = [
     title: "Mechanics",
     subtitle: "Grow Your Rating, Qualify For Auto Equipment Credit",
     description:
-      "Arcu At Dictum Sapien, Mollis. Vulputate Sit Id Accumsan, Ultricies. In Ultrices Malesuada Elit Mauris Etiam Odio. Duis Tristique Lacus, Et Blandit Viverra Nisl Velit. Sed Mattis Rhoncus,",
+      "List your services on the marketplace, service Trykey customers and build a credit score to unlock access to loans for equipment.",
     phoneImage: "/images/landing/phone-user1.svg",
   },
   {
@@ -43,10 +43,10 @@ const userTypes = [
         />
       </svg>
     ),
-    title: "Fleet Owners",
-    subtitle: "Install Our Trackers & Get Immediate Working Capital",
+    title: "Fleet Managers",
+    subtitle: "Install our tracker, qualify for commercial auto repair credit",
     description:
-      "Arcu At Dictum Sapien, Mollis. Vulputate Sit Id Accumsan, Ultricies. In Ultrices Malesuada Elit Mauris Etiam Odio. Duis Tristique Lacus, Et Blandit Viverra Nisl Velit. Sed Mattis Rhoncus,",
+      "Secure your capital with complete visibility over your assets. Monitor yield, track performance, and access auto-based loans.",
     phoneImage: "/images/landing/phone-user2.svg",
   },
   {
@@ -65,10 +65,10 @@ const userTypes = [
         />
       </svg>
     ),
-    title: "Automobile part sellers",
-    subtitle: "Real-Time Vehicle Data For Better Lending Decisions",
+    title: "Auto Part Sellers",
+    subtitle: "Grow your rating, qualify for auto parts credit",
     description:
-      "Arcu At Dictum Sapien, Mollis. Vulputate Sit Id Accumsan, Ultricies. In Ultrices Malesuada Elit Mauris Etiam Odio. Duis Tristique Lacus, Et Blandit Viverra Nisl Velit. Sed Mattis Rhoncus,",
+      "Get onboarded into our marketplace, complete auto part sales build a credit score, and qualify for part financing",
     phoneImage: "/images/landing/phone-user3.svg",
   },
   {
@@ -88,9 +88,9 @@ const userTypes = [
       </svg>
     ),
     title: "Liquidity Providers",
-    subtitle: "In-Depth Vehicle Health Reports For Better Inventory",
+    subtitle: "Fund our quarterly window, earn interest and Trykey tokens",
     description:
-      "Arcu At Dictum Sapien, Mollis. Vulputate Sit Id Accumsan, Ultricies. In Ultrices Malesuada Elit Mauris Etiam Odio. Duis Tristique Lacus, Et Blandit Viverra Nisl Velit. Sed Mattis Rhoncus,",
+      "Participate in quarterly funding rounds, invest in vendors with the highest credit rating, and earn interest and Trykey tokens.",
     phoneImage: "/images/landing/phone-user4.svg",
   },
 ];
@@ -126,7 +126,7 @@ const AdvantagesSection: React.FC = () => {
     const timer = setInterval(() => {
       const nextIndex = (activeIndex + 1) % userTypes.length;
       navigateToSlide(nextIndex);
-    }, 3000); // Change content every 3 seconds
+    }, 5000); // Change content every 5 seconds
 
     return () => clearInterval(timer);
   }, [activeIndex]);
