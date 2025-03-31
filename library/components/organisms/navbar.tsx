@@ -103,15 +103,15 @@ const Navbar: React.FC = () => {
               <Heading href="/#about-us" className={desktopLinkStyle}>
                 About Us
               </Heading>
-              <Heading href="/" className={desktopLinkStyle}>
+              <Heading href="/dashboard" className={desktopLinkStyle}>
                 Dashboard
               </Heading>
               <Heading href="/#features" className={desktopLinkStyle}>
                 Features
               </Heading>
-              <Heading href="/" className={desktopLinkStyle}>
+              {/* <Heading href="/" className={desktopLinkStyle}>
                 News
-              </Heading>
+              </Heading> */}
             </div>
             <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
               <ThemeSwitch />
