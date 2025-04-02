@@ -27,7 +27,7 @@ const HowItWorksSection = () => {
 
         <div className="relative w-full pb-[56.25%]">
           <iframe
-            src="https://www.youtube.com/embed/fdWlx5hECK4"
+            src="https://www.youtube.com/embed/AUBhbr8pVVs?si=lc4RtkPPxTZCZhym"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
