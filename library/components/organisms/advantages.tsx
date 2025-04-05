@@ -206,7 +206,7 @@ const AdvantagesSection: React.FC = () => {
         {/* Carousel Section */}
         <div className="flex flex-col lg:flex-row items-center justify-center relative">
           {/* Arrow Navigation - Left */}
-          <div className="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 z-30">
+          <div className="hidden lg:block absolute left-0 top-4 z-30">
             <button
               onClick={goToPrev}
               className="p-6 rounded-full bg-transparent hover:bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -319,7 +319,7 @@ const AdvantagesSection: React.FC = () => {
             </div>
           </div>
           {/* Arrow Navigation - right */}
-          <div className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 z-30">
+          <div className="hidden lg:block absolute right-0 top-4 z-30">
             <button
               onClick={goToNext}
               className="p-6 rounded-full bg-transparent hover:bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"

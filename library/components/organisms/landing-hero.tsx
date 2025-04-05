@@ -71,7 +71,7 @@ const LandingSection: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="large" 
-                href="/get-started" 
+                href="/" 
                 className="rounded-md flex items-center justify-center bg-lightMode-brand-primary hover:bg-lightMode-brand-primary/90 text-white py-3 px-6"
               >
                 <span>Get Started</span>

@@ -103,9 +103,9 @@ const Navbar: React.FC = () => {
               <Heading href="/#about-us" className={desktopLinkStyle}>
                 About Us
               </Heading>
-              <Heading href="/dashboard" className={desktopLinkStyle}>
+              {/* <Heading href="/dashboard" className={desktopLinkStyle}>
                 Dashboard
-              </Heading>
+              </Heading> */}
               <Heading href="/#features" className={desktopLinkStyle}>
                 Features
               </Heading>
@@ -115,14 +115,14 @@ const Navbar: React.FC = () => {
             </div>
             <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
               <ThemeSwitch />
-              <Button
+              {/* <Button
                 variant="primary"
                 size="medium"
                 className="text-sm xl:text-base px-3 py-1.5 xl:px-4 xl:py-2"
                 href="/sign-up"
               >
                 Sign Up Now
-              </Button>
+              </Button> */}
             </div>
             <div className="flex items-center lg:hidden">
               <ThemeSwitch />
@@ -178,13 +178,13 @@ const Navbar: React.FC = () => {
                 >
                   About Us
                 </Heading>
-                <Heading
+                {/* <Heading
                   href="/"
                   onClick={toggleMenu}
                   className={mobileLinkStyle}
                 >
                   Dashboard
-                </Heading>
+                </Heading> */}
                 <Heading
                   href="/#features"
                   onClick={toggleMenu}
@@ -201,9 +201,9 @@ const Navbar: React.FC = () => {
                 </Heading>
               </div>
               <div className="pt-4 pb-3 px-4">
-                <Button variant="primary" size="medium" className="w-full">
+                {/* <Button variant="primary" size="medium" className="w-full">
                   Sign Up Now
-                </Button>
+                </Button> */}
               </div>
             </motion.div>
           </>
